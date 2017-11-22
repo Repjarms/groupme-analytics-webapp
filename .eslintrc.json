@@ -3,5 +3,10 @@
     "env": {
       "browser": true,
       "node": true
+    },
+    "rules": {
+      "prefer-destructuring": 0,
+      "global-require": 0,
+      "import/no-extraneous-dependencies": 0
     }
 }
