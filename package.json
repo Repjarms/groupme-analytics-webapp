@@ -7,7 +7,7 @@
     "start": "node index.js",
     "build": "webpack --config webpack.config.prod.js",
     "lint": "./node_modules/eslint/bin/eslint.js .",
-    "test": "mocha"
+    "test": "npm run lint && mocha"
   },
   "author": "",
   "license": "ISC",
