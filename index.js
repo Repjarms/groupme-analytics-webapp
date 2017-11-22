@@ -7,9 +7,14 @@ const api = require('./routes/api');
 const app = express();
 app.use('/api', api);
 
-const config = require('./webpack.config.dev.js');
+let config;
+let compiler;
 
-const compiler = webpack(config);
+if (process.env.NODE_ENV !== 'production') {
+  config = require('./webpack.config.dev.js');
+  compiler = webpack(config);
+}
+
 
 if (process.env.NODE_ENV !== 'production') {
   app.use(webpackDevMiddleware(compiler, {
@@ -21,6 +26,10 @@ if (process.env.NODE_ENV !== 'production') {
 } else {
   app.use(express.static(`${__dirname}/dist`));
 }
+
+app.get('/', (req, res) => {
+  res.sendFile(`${__dirname}/dist/index.html`);
+});
 
 const PORT = 3000;
 
