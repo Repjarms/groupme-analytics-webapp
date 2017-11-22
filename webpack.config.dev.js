@@ -1,18 +1,13 @@
-const path = require('path');
+const merge = require('webpack-merge');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const common = require('./webpack.config.common.js');
 
-module.exports = {
-  // load the hot loader client before going into our entry point
+module.exports = merge.smart(common, {
   entry: [
     'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
     './src/app.js',
   ],
 
-  devtool: 'inline-source-map',
-
-  // module
   module: {
     rules: [
       {
@@ -22,30 +17,12 @@ module.exports = {
           { loader: 'css-loader', options: { importLoaders: 1 } },
         ],
       },
-      {
-        test: /\.html$/,
-        use: [
-          { loader: 'html-loader' },
-        ],
-      },
     ],
   },
 
-  // plugins
+  devtool: 'inline-source-map',
+
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new CleanWebpackPlugin(['dist']),
-    new HtmlWebpackPlugin({
-      title: 'Output Management',
-      template: 'src/index.html',
-    }),
   ],
-
-  // output
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js',
-    publicPath: '/',
-  },
-};
-
+});

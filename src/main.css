@@ -1,1 +1,32 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.app {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.header {
+  flex: 0 1 100%;
+  background: #333;
+  color: white;
+  padding: 2rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.chart-container {
+  flex: 0 1 80%;
+  margin: 0 10%;
+}
+
+canvas {
+  background: white;
+}
+  
 
