@@ -60,3 +60,6 @@ typings/
 # vim swap files
 *.swp
 *.swo
+
+# webpack dist
+dist/*
