@@ -1,6 +1,5 @@
 #!/bin/bash
 # Dreamhost deploy script
-source $TRAVIS_BUILD_DIR/.env
 
 HOST="ps565646.dreamhostps.com"
 USER=$FTP_USER
