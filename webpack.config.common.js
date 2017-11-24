@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
   // load the hot loader client before going into our entry point
@@ -26,6 +27,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Production',
       template: 'src/index.html',
+    }),
+    new StyleLintPlugin({
+      confFile: './.stylelintrc',
+      context: 'src',
+      files: '**/*.css',
+      failOnError: false,
+      quiet: false,
     }),
   ],
   output: {

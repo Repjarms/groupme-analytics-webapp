@@ -2,15 +2,40 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Index</title>
   </head>
   <body>
     <div id="app" class="app">
-      <header class="header">GTBz Dashboard</header>
+      <header class="header">
+        <h2>GTBz Dashboard</h2>
+      </header>
       <div class="chart-container">
-        <p>Chart Test</p>
-        <canvas id="testChart" width="300" height"300"></canvas>
+        <div id="summary" class="chart-title">
+          <h2>Summary Metrics</h2>
+        </div>
+        <div class="summary-container">
+          <div class="summary-card">
+            <h3>Card Title</h3>
+            <h1 class="summary-value">380,000</h1>
+          </div> 
+          <div class="summary-card">
+            <h3>Card Title</h3>
+            <h1 class="summary-value">380,000</h1>
+          </div>
+          <div class="summary-card">
+            <h3>Card Title</h3>
+            <h1 class="summary-value">380,000</h1>
+          </div>
+        </div>
+      </div>
+      <div class="chart-container">
+        <div id="post-bar" class="chart-title">
+          <h2>Post and like distribution over the last 100 messages</h2>
+        </div>
+        <div class="chart-render">
+          <canvas id="testChart" width="300" height"300"></canvas>
+        </div>
       </div>
     </div>
   </body>
