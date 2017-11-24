@@ -12,7 +12,7 @@ script:
 cache:
   directories:
     - node_modules
-before_deploy: apt-get install lftp
+before_deploy: sudo apt-get install lftp
 deploy:
   provider: script
   script: scripts/deploy.sh
