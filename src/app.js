@@ -4,6 +4,7 @@ import './main.css';
 
 // add bar chart
 const barChartNode = document.getElementById('testChart').getContext('2d');
+const totalMessageNode = document.getElementById('total-message-count');
 const chartData = {
   type: 'bar',
   data: {
@@ -101,7 +102,8 @@ const mapResponseToChartData = (response, crtData) => {
 fetch('/api/messages')
   .then(data => data.json())
   .then((json) => {
-    const newData = mapResponseToChartData(json, chartData);
+    const newData = mapResponseToChartData(json.messageStats, chartData);
+    totalMessageNode.innerHTML = json.count.toLocaleString();
     chartData.data = newData;
     createChart(barChartNode, chartData);
   })
