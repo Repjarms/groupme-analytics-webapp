@@ -19,7 +19,7 @@ describe('/api/messages Route', () => {
   });
   test('it should respond with json', () => {
     request(app).get('/api/messages').then(res => (
-      expect(res.statusCode).toBe(200)
+      expect(res.type).toBe('application/json')
     ));
   });
 });
