@@ -43,7 +43,6 @@
     "xmlhttprequest": "^1.8.0"
   },
   "pre-commit": [
-    "lint",
     "test"
   ]
 }
