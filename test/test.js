@@ -1,7 +1,25 @@
-const assert = require('assert');
+process.env.NODE_ENV = 'production';
 
-describe('stub', () => {
-  it('should equal 4', () => {
-    assert.equal(4, 2 + 2);
+const request = require('supertest');
+const app = require('../index');
+
+describe('/ Route', () => {
+  test('it should respond OK to GET requests', () => {
+    request(app).get('/').then(res => (
+      expect(res.statusCode).toBe(200)
+    ));
+  });
+});
+
+describe('/api/messages Route', () => {
+  test('it should respond OK to GET requests', () => {
+    request(app).get('/api/messages').then(res => (
+      expect(res.statusCode).toBe(200)
+    ));
+  });
+  test('it should respond with json', () => {
+    request(app).get('/api/messages').then(res => (
+      expect(res.statusCode).toBe(200)
+    ));
   });
 });
