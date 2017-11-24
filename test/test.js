@@ -3,23 +3,23 @@ process.env.NODE_ENV = 'production';
 const request = require('supertest');
 const app = require('../index');
 
-describe('GET /', () => {
-  it('responds with 200', (done) => {
-    request(app)
-      .get('/')
-      .expect(200)
-      .end(done);
+describe('/ Route', () => {
+  test('it should respond OK to GET requests', () => {
+    request(app).get('/').then(res => (
+      expect(res.statusCode).toBe(200)
+    ));
   });
 });
 
-describe('GET /api/messages', () => {
-  it('responds with JSON', (done) => {
-    request(app)
-      .get('/api/messages')
-      .set('Accept', 'application/json')
-      .expect('Content-Type', /json/)
-      .expect(200)
-      .end(done);
+describe('/api/messages Route', () => {
+  test('it should respond OK to GET requests', () => {
+    request(app).get('/api/messages').then(res => (
+      expect(res.statusCode).toBe(200)
+    ));
+  });
+  test('it should respond with json', () => {
+    request(app).get('/api/messages').then(res => (
+      expect(res.statusCode).toBe(200)
+    ));
   });
 });
-
