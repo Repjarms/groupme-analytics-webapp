@@ -19,7 +19,8 @@ mirror --reverse \
   --exclude .git.* \
   --exclude src.* \
   --exclude coverage.* \
+  --exclude test.* \
   --exclude-glob *.swp \
   --exclude-glob *.swo \
-  --exclude test.*"
+  --exclude-glob .env"
 
