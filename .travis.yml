@@ -1,17 +1,21 @@
 language: node_js
 sudo: required
 node_js:
-  - "6"
+- '6'
 env:
   before_install:
-    - openssl aes-256-cbc -K $encrypted_4d472037f3cf_key -iv $encrypted_4d472037f3cf_iv -in .env.enc -out .env -d
+  - openssl aes-256-cbc -K $encrypted_4d472037f3cf_key -iv $encrypted_4d472037f3cf_iv
+    -in .env.enc -out .env -d
+  global:
+  - secure: JB4GBgANcIpDTRtFldxmwxvfMNF8MKglNHPuqL0DrdXfhkkhGZDgCLJNE7LKmVw3Z/y67wEQ26HZGWXzafoxmacs+JDKkviRd+lEjuqc5Q+U+DhykvNomXXMWPa+53fm5BKOsQekbivz0esAIneEBXFg9pk7+TQOfyAmhnH3urjLxtlxaiQjl0JCauElcMwW5SanUycm2iZxbHVFuLPo8PUBdhMgwyad5wtzKwVWxjwqT0Pm0cTNb0eQ9rYyghrrPBFCe7TUlpd4GWWhs0bzu3MAMwYwIlvojQQo1KGtULyt6GHrw1zwkkT724US/NcxH2xDXVfryumWhuOvIzbZkT9eGMuPxVzo6kdHBaz21zTJn69wocnvAvRtt46tU2IPl7xXxyBUSH9S+ZdLQA5wqID2z6XyJssP/JrIQWP3PTwAwh7A1zyx1Shj2oxBNHkvYM6y6dv1QujS6eonLsQ/LS+RsksC5etZpkui5vshtcXLBTVlfrdrMJ12DAaGonDPeOjIlYfX1mmTxrKeNhTLZDZaVS2U2K26Cpp770k7U33iGjI62oU4VTPZhElpEOVe4UpLhwwY0pa+9FD1farFNM+ZBia9abKilqDys6K5gA+fAL2DftUZ5yaadN/2pvGT3ew3zo8ummoLYgvCkZ58Qt6xITnoWdTwwc7f3TKDR44=
+  - secure: MRR8Xzh/+qHZR+D56PqqtBQYBiOu0Qcpm11fLpt/CQZ9jZHpH955TGcuCckEmG3f6sCDgc5dNl5PQjFCGYNkt6txp/0H4VGxOonz14IIDvtbdjVjiwy7lh7Yy/mSMpkGEb+YIoIZitpWmxpgu2yCJDenM5mWAntOmzm9fZkUJUk8X00M+gJkmajziROcxSp5h8dBVFun/z3+mfIteT894Qw9vxdmlGM8XvwfQ6m6gnYry845gV6uHySZBAc+JZFERSmrk55AW/W0eboiGyzek8rPpYtFt5FlFRdnMje0hx/Yr2/GQ4WDozNAGzge1NpWBb8yyNSiXDtIiO5ljh4qElvrda+PNp89Qoaw/26PfkqmFTTM21lOb4thYOfGiGhh5y4eLy1W34DNfmFOytKTbrcx9B2YXu8ScTY/Tcr/TEU8MJk1THNBvsyHGUeWiqafvDArs3jfNxRPGkkqEnRaeSgkNqdukzAqMLSGP+dd4BnZjVVeysvQwMJPUkGvOBJWkn+kjAYPs/fKK8NjsuFS9DHF9m+GwYseVga66xpQwofBHKjo8J3AHFnhmBbxqlNezM3h0hCbSU1K0Mi3pfgu23kZI76Diyc/zbfgVFkO4jh/aRX2wkvehZxNZdQfhy8I1mxq7MOC/2zDs2Ni8PK29HuYp44fglkl2qZhOfVhXJ8=
 install:
-  - npm install
+- npm install
 script:
-  - npm test
+- npm test
 cache:
   directories:
-    - node_modules
+  - node_modules
 before_deploy: sudo apt-get install lftp
 deploy:
   provider: script
