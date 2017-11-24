@@ -1,13 +1,12 @@
 #!/bin/bash
 # Dreamhost deploy script
-source ./.env
+source $TRAVIS_BUILD_DIR/.env
 
-PROJECT_DIR=./
 HOST="ps565646.dreamhostps.com"
 USER=$FTP_USER
 PASS=$FTP_PASSWORD
 FTPURL="ftp://$USER:$PASS@$HOST"
-LCD=$PROJECT_DIR
+LCD=$TRAVIS_BUILD_DIR
 RCD=/groupme-analytics-bot
 DELETE="--delete"
 lftp -c "set ftp:list-options -a;
