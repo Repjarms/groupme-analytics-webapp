@@ -63,3 +63,7 @@ typings/
 
 # webpack dist
 dist/*
+
+# engine data files
+engine/*.json
+engine/*/*.json
